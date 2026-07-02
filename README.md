@@ -127,6 +127,7 @@ npm run dev
 *Open your browser and navigate to `http://localhost:5173` (or the port shown in your terminal) to see the dashboard.*
 
 ---
+<img width="1920" height="916" alt="image" src="https://github.com/user-attachments/assets/4dda6790-5584-4f17-a6ef-ef2c3d2ad3df" />
 
 ## 📊 Sample Demo Walkthrough
 
