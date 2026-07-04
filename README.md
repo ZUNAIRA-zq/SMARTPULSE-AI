@@ -115,6 +115,7 @@ To run the application locally, you will start the Backend FastAPI server and th
 ### Start Backend:
 From the project root:
 ```bash
+pip install -r requirements.txt
 uvicorn backend.main:app --port 8000 --reload
 ```
 *The API will be available at `http://127.0.0.1:8000`. On startup, it will run an initial analysis on the default mock sales dataset and cache the results.*
@@ -122,6 +123,8 @@ uvicorn backend.main:app --port 8000 --reload
 ### Start Frontend:
 From the `frontend` directory:
 ```bash
+cd frontend
+npm install
 npm run dev
 ```
 *Open your browser and navigate to `http://localhost:5173` (or the port shown in your terminal) to see the dashboard.*
