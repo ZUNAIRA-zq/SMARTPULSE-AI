@@ -164,14 +164,6 @@ SmartPulse AI expects a weekly sales CSV with the following columns:
 - Region and Product_Category can be any labels of your choosing — the system doesn't require specific names, it just needs consistent grouping to compute baselines.
 - More historical weeks (ideally 3+ months) give the anomaly detector a stronger sense of "normal" baseline behavior, improving detection accuracy.
 - A ready-to-use sample file with realistic embedded anomalies is included at `data/sample_sales.csv`.
-
-**Notes:**
-- ⚠️ **All five columns are required.** The Isolation Forest model uses `Revenue`, `Expenses`, and `Profit` together to detect anomalies - missing any of them will cause the Data Monitor Agent to fail and skip insight generation.
-- `Date` values should be consistent (weekly cadence) and sortable chronologically.
-- `Region` can be any label of your choosing  the system doesn't require specific region names, it just needs consistent grouping to compute baselines per region.
-- More historical weeks (ideally 3+ months) give the anomaly detector a stronger sense of "normal" baseline behavior, improving detection accuracy.
-- A ready-to-use sample file with realistic embedded anomalies is included at `data/sample_sales.csv`.
-
 ---
 
 ## 🔒 Security & Design Notes
