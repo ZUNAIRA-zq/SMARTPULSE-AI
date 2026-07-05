@@ -145,14 +145,25 @@ npm run dev
    - Central region's expense surge (week of June 1)
 5. **View Alert Digests**: Click *Alert Logs* to view the professional email digests drafted by the Alert Agent, expandable to see the full body.
 6. **Upload Custom Sales**: Drag a new weekly sales CSV into the upload section. The dashboard will automatically transition to the *Agent Console* tab, showing a live hacker-style console with real-time output streamed from the Orchestrator and each worker agent as they communicate.
-## 📄 CSV Data Format
+
+- ## 📄 CSV Data Format
+
 SmartPulse AI expects a weekly sales CSV with the following columns:
 
-- **`Date`** *(string)* — Week start date, ISO format (`YYYY-MM-DD`). Example: `2026-03-09`
-- **`Region`** *(string)* — Sales region or branch name. Example: `North`
-- **`Revenue`** *(number)* — Total revenue for that region/week, in your local currency. Example: `30048.78`
-- **`Expenses`** *(number)* — Total operating expenses for that region/week. Example: `17317.45`
-- **`Profit`** *(number)* — Net profit for that region/week (Revenue − Expenses). Example: `12731.33`
+- **Date** (string) — Week start date, ISO format (YYYY-MM-DD). Example: `2026-05-01`
+- **Region** (string) — Sales region or branch name. Example: `Lahore`
+- **Product_Category** (string) — Product category for that sales record. Example: `Electronics`
+- **Revenue** (number) — Total revenue for that region/week, in your local currency. Example: `15200`
+- **Expenses** (number) — Total operating expenses for that region/week. Example: `9800`
+- **Profit** (number) — Net profit for that region/week (Revenue − Expenses). Example: `5400`
+- **Units_Sold** (number) — Total units sold for that region/week. Example: `142`
+
+**Notes:**
+- ⚠️ All seven columns are required, with exact capitalization. The Isolation Forest model uses `Revenue`, `Expenses`, and `Profit` together to detect anomalies — missing any of them will cause the Data Monitor Agent to fail and skip insight generation.
+- Date values should be consistent (weekly cadence) and sortable chronologically.
+- Region and Product_Category can be any labels of your choosing — the system doesn't require specific names, it just needs consistent grouping to compute baselines.
+- More historical weeks (ideally 3+ months) give the anomaly detector a stronger sense of "normal" baseline behavior, improving detection accuracy.
+- A ready-to-use sample file with realistic embedded anomalies is included at `data/sample_sales.csv`.
 
 **Notes:**
 - ⚠️ **All five columns are required.** The Isolation Forest model uses `Revenue`, `Expenses`, and `Profit` together to detect anomalies - missing any of them will cause the Data Monitor Agent to fail and skip insight generation.
